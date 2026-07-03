@@ -1,0 +1,1038 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>STEVE AOKI - COLLECTOR'S NOTES · TORRAS</title>
+    <style>
+      :root {
+        --ink: #0c0b09;
+        --soft: #f7f1e8;
+        --muted: rgba(247, 241, 232, 0.58);
+        --purple: #6f2cff;
+        --violet: #c6adff;
+        --orange: #ff7a2f;
+        --blue: #9ec5ff;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        overflow-x: hidden;
+        background: var(--ink);
+        color: var(--soft);
+        font-family: "Cormorant Garamond", "Instrument Serif", "Times New Roman", serif;
+      }
+
+      body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: 100;
+        pointer-events: none;
+        opacity: 0.055;
+        mix-blend-mode: soft-light;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .page {
+        position: relative;
+        min-height: 118vh;
+        overflow: hidden;
+        background: var(--ink);
+        border-bottom: 1px solid rgba(247, 241, 232, 0.08);
+        box-shadow:
+          inset 0 1px 0 rgba(247, 241, 232, 0.06),
+          inset 0 -1px 0 rgba(247, 241, 232, 0.05);
+      }
+
+      .page::before {
+        content: "";
+        position: absolute;
+        inset: -24%;
+        opacity: 0.72;
+        filter: blur(64px) saturate(0.78) brightness(0.74);
+        background:
+          radial-gradient(circle at 24% 28%, var(--tone-a), transparent 34%),
+          radial-gradient(circle at 78% 72%, var(--tone-b), transparent 36%);
+        animation: drift 70s ease-in-out infinite;
+      }
+
+      .page::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background:
+          linear-gradient(90deg, rgba(247, 241, 232, 0.07) 1px, transparent 1px),
+          linear-gradient(180deg, rgba(247, 241, 232, 0.035) 1px, transparent 1px),
+          rgba(12, 11, 9, 0.62);
+        background-size: 120px 120px, 120px 120px, auto;
+        mix-blend-mode: normal;
+      }
+
+      @keyframes drift {
+        0%,
+        100% {
+          transform: translate3d(0, 0, 0) scale(1);
+        }
+        50% {
+          transform: translate3d(4%, -3%, 0) scale(1.08);
+        }
+      }
+
+      .cover {
+        --tone-a: rgba(111, 63, 200, 0.52);
+        --tone-b: rgba(255, 122, 47, 0.28);
+        min-height: 100vh;
+      }
+
+      .cover-photo {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transform: scale(1.05);
+        opacity: 0.72;
+        filter: saturate(0.72) contrast(1.12);
+      }
+
+      .cover-shade {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(circle at 28% 34%, rgba(111, 63, 200, 0.38), transparent 34%),
+          linear-gradient(to top, rgba(12, 11, 9, 1), rgba(12, 11, 9, 0.45), rgba(12, 11, 9, 0.3));
+        mix-blend-mode: screen;
+      }
+
+      .inner {
+        position: relative;
+        z-index: 2;
+        width: min(100%, 1660px);
+        min-height: inherit;
+        margin: 0 auto;
+        padding: clamp(7.5rem, 12vw, 13rem) clamp(1.5rem, 5vw, 4rem);
+      }
+
+      .cover .inner {
+        display: flex;
+        min-height: 100vh;
+        align-items: flex-end;
+        padding-top: 2.5rem;
+        padding-bottom: calc(2.5rem + 0.5cm);
+      }
+
+      .cover-grid,
+      .split {
+        display: grid;
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        gap: clamp(3rem, 6vw, 7rem);
+        align-items: center;
+      }
+
+      .cover-grid {
+        width: 100%;
+        align-items: end;
+      }
+
+      .cover-copy {
+        grid-column: span 8;
+      }
+
+      .cover-brand {
+        grid-column: span 4;
+        display: grid;
+        justify-items: end;
+        gap: 2rem;
+      }
+
+      .meta,
+      .caption,
+      .rail,
+      .footer {
+        font-family: "IBM Plex Mono", "JetBrains Mono", ui-monospace, monospace;
+        font-size: 5px;
+        line-height: 1.7;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      .meta {
+        color: rgba(247, 241, 232, 0.58);
+        font-size: 11px;
+      }
+
+      h1,
+      h2 {
+        margin: 0;
+        font-family: "Bebas Neue", "Anton", Impact, sans-serif;
+        font-weight: 400;
+        letter-spacing: 0;
+        line-height: 0.82;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin-top: 2rem;
+        font-size: clamp(4.5rem, 12vw, 10.5rem);
+      }
+
+      h2 {
+        margin-top: 2.5rem;
+        max-width: 58rem;
+        font-size: clamp(3.65rem, 8.8vw, 7.5rem);
+      }
+
+      p {
+        margin: 0;
+      }
+
+      .cover-line {
+        margin-top: 2.5rem;
+        font-size: clamp(2rem, 4.8vw, 3.8rem);
+        line-height: 1;
+        font-style: italic;
+      }
+
+      .logo {
+        width: clamp(8rem, 13vw, 12rem);
+        height: auto;
+        filter: invert(1);
+        opacity: 0.88;
+      }
+
+      .left {
+        grid-column: span 5;
+      }
+
+      .left-narrow {
+        grid-column: span 4;
+      }
+
+      .right {
+        grid-column: span 7;
+      }
+
+      .right-wide {
+        grid-column: span 8;
+      }
+
+      .statement {
+        margin-top: clamp(4.5rem, 7vw, 7rem);
+        display: grid;
+        gap: 2.2rem;
+      }
+
+      .statement p {
+        max-width: 38rem;
+        font-size: clamp(1.35rem, 2.65vw, 2.35rem);
+        line-height: 1.04;
+      }
+
+      .statement strong {
+        font-weight: 700;
+      }
+
+      .future-word {
+        color: #25d6d2;
+      }
+
+      .compact-copy p {
+        font-size: clamp(1.05rem, 2.05vw, 1.85rem);
+      }
+
+      .why-steve .statement p,
+      .why-ostand .statement p {
+        line-height: 1.2;
+      }
+
+      .why-ostand .statement {
+        gap: 2.65rem;
+      }
+
+      .image-grid {
+        display: grid;
+        min-height: 55rem;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: clamp(1.25rem, 2vw, 1.75rem);
+      }
+
+      figure {
+        position: relative;
+        margin: 0;
+        overflow: hidden;
+        border: 1px solid rgba(247, 241, 232, 0.12);
+        background: rgba(247, 241, 232, 0.05);
+        box-shadow: 0 54px 140px -60px rgba(0, 0, 0, 0.95);
+      }
+
+      .image-grid figure {
+        aspect-ratio: 4 / 5;
+      }
+
+      .image-grid figure:nth-child(even) {
+        transform: translateY(2.5rem);
+      }
+
+      figure img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: saturate(0.72) contrast(1.12);
+        transition: transform 1800ms cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      figure:hover img {
+        transform: scale(1.025);
+      }
+
+      figure::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: linear-gradient(to top, rgba(12, 11, 9, 0.62), transparent 52%);
+      }
+
+      .contain img {
+        object-fit: contain;
+        padding: clamp(1.75rem, 4vw, 3rem);
+      }
+
+      .caption {
+        position: absolute;
+        right: 1rem;
+        bottom: 1rem;
+        left: 1rem;
+        z-index: 2;
+        color: rgba(247, 241, 232, 0.78);
+      }
+
+      .why-steve-image-grid .caption,
+      .torras-image-grid .caption {
+        font-size: 8px;
+      }
+
+      .motto {
+        margin-top: clamp(2rem, 3vw, 3rem);
+        color: var(--accent);
+        font-size: clamp(1.5rem, 2.6vw, 2.55rem);
+        font-style: italic;
+        line-height: 1.05;
+      }
+
+      .motto span {
+        display: inline-block;
+        margin-right: 1rem;
+      }
+
+      .motto-line {
+        margin-top: 1.6rem;
+        border-top: 1px solid rgba(247, 241, 232, 0.18);
+      }
+
+      .hero {
+        width: min(100%, 48rem);
+        margin-left: auto;
+        aspect-ratio: 4 / 5;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: -0.75rem;
+        left: 12%;
+        z-index: 3;
+        width: 7rem;
+        height: 1.25rem;
+        transform: rotate(-3deg);
+        border: 1px solid rgba(247, 241, 232, 0.18);
+        background: repeating-linear-gradient(
+          90deg,
+          rgba(12, 11, 9, 0.08) 0 1px,
+          rgba(238, 232, 220, 0.2) 1px 8px
+        );
+      }
+
+      .hero::after {
+        background:
+          radial-gradient(circle at 48% 22%, rgba(255, 255, 255, 0.16), transparent 36%),
+          linear-gradient(to top, rgba(12, 11, 9, 0.2), transparent 52%);
+        mix-blend-mode: screen;
+      }
+
+      .keywords {
+        margin-top: clamp(4rem, 6vw, 5rem);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.25rem 2.5rem;
+      }
+
+      .keywords.grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .keywords span {
+        border-left: 1px solid currentColor;
+        padding-left: 1rem;
+        font-family: "IBM Plex Mono", "JetBrains Mono", ui-monospace, monospace;
+        font-size: 5px;
+        line-height: 1.7;
+        text-transform: uppercase;
+        color: var(--accent);
+      }
+
+      .bottom {
+        margin-top: clamp(4.5rem, 7vw, 6rem);
+        padding-top: 3rem;
+        border-top: 1px solid rgba(247, 241, 232, 0.12);
+        font-size: clamp(1.55rem, 3vw, 3rem);
+        line-height: 1;
+        font-style: italic;
+        color: var(--accent);
+      }
+
+      .bottom span {
+        display: inline-block;
+        margin-right: 1.25rem;
+      }
+
+      .bottom-above-line {
+        padding-top: 0;
+        border-top: 0;
+        font-size: clamp(1.3rem, 2.5vw, 2.5rem);
+      }
+
+      .bottom-above-line::after {
+        content: "";
+        display: block;
+        margin-top: 2rem;
+        border-top: 1px solid rgba(247, 241, 232, 0.12);
+      }
+
+      .note {
+        max-width: 20rem;
+        border: 1px solid rgba(247, 241, 232, 0.12);
+        background: rgba(247, 241, 232, 0.05);
+        padding: 1.5rem;
+      }
+
+      .note div + div {
+        margin-top: 0.75rem;
+      }
+
+      .quote {
+        margin-top: clamp(4rem, 6vw, 5rem);
+        max-width: 36rem;
+        font-size: clamp(1.55rem, 2.65vw, 2.35rem);
+        line-height: 1;
+        font-style: italic;
+        color: var(--accent);
+      }
+
+      .center {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .center .statement p {
+        max-width: 52rem;
+      }
+
+      .center .statement {
+        justify-items: center;
+      }
+
+      .copy-rule {
+        width: min(22rem, 80%);
+        height: 1px;
+        margin: 1rem 0;
+        background: rgba(247, 241, 232, 0.42);
+      }
+
+      .closing {
+        margin-top: clamp(4rem, 7vw, 6rem);
+        display: grid;
+        gap: 1rem;
+        color: rgba(247, 241, 232, 0.66);
+      }
+
+      .placeholder {
+        display: flex;
+        align-items: flex-end;
+        min-height: 100%;
+      }
+
+      .placeholder::after {
+        background:
+          linear-gradient(to top, rgba(12, 11, 9, 0.68), transparent 56%),
+          radial-gradient(circle at 50% 22%, rgba(247, 241, 232, 0.08), transparent 38%);
+      }
+
+      .ostand-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: clamp(1.25rem, 2vw, 1.75rem);
+        align-items: stretch;
+      }
+
+      .ostand-grid figure {
+        aspect-ratio: 4 / 5;
+      }
+
+      .ostand-keywords {
+        align-self: end;
+        display: grid;
+        gap: 2rem;
+        padding: clamp(1.5rem, 3vw, 2.5rem);
+        border: 1px solid rgba(247, 241, 232, 0.12);
+        background: rgba(247, 241, 232, 0.05);
+      }
+
+      .ostand-keywords span {
+        border-left: 1px solid currentColor;
+        padding-left: 1rem;
+        font-family: "IBM Plex Mono", "JetBrains Mono", ui-monospace, monospace;
+        font-size: 20px;
+        line-height: 2.1;
+        text-transform: uppercase;
+        color: var(--accent);
+      }
+
+      .closing-line {
+        font-size: 20px;
+      }
+
+      .closing.meta {
+        font-size: 8px;
+      }
+
+      .closing-large {
+        font-size: 15px;
+        line-height: 1.55;
+      }
+
+      .closing-logos {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: clamp(1.25rem, 3vw, 2.5rem);
+        margin-top: 1rem;
+      }
+
+      .closing-logos img {
+        display: block;
+        width: clamp(7rem, 12vw, 12rem);
+        height: auto;
+        max-height: 4.5rem;
+        object-fit: contain;
+      }
+
+      .torras-image-grid {
+        transform: scale(1.3);
+        transform-origin: center;
+      }
+
+      .why-steve-image-grid {
+        transform: scale(0.8);
+        transform-origin: center;
+      }
+
+      .shift-right {
+        transform: translateX(6em);
+      }
+
+      .why-torras .right {
+        padding-left: 2em;
+      }
+
+      .why-now .hero {
+        transform: translateX(-3em);
+      }
+
+      .small-copy p {
+        font-size: clamp(1.05rem, 2.05vw, 1.85rem);
+        line-height: 1.08;
+      }
+
+      .orange-text {
+        color: var(--orange);
+      }
+
+      .blue-text {
+        color: var(--blue);
+      }
+
+      .yellow-text {
+        color: #ffd447;
+      }
+
+      .story-wide {
+        grid-column: span 7;
+      }
+
+      .story-media {
+        grid-column: span 5;
+      }
+
+      .rail {
+        position: fixed;
+        top: 50%;
+        right: 1rem;
+        z-index: 40;
+        transform: translateY(-50%);
+      }
+
+      .rail ul {
+        display: flex;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .rail a {
+        display: block;
+        color: rgba(238, 232, 220, 0.28);
+        text-align: right;
+        text-decoration: none;
+        transition: color 260ms ease;
+      }
+
+      .rail a::after {
+        content: "";
+        display: inline-block;
+        width: 0.75rem;
+        height: 1px;
+        margin-left: 0.75rem;
+        vertical-align: middle;
+        background: rgba(238, 232, 220, 0.3);
+        transition:
+          width 260ms ease,
+          background 260ms ease;
+      }
+
+      .rail a.active {
+        color: var(--soft);
+      }
+
+      .rail a.active::after {
+        width: 2.5rem;
+        background: var(--soft);
+      }
+
+      .footer {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 35;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        border-top: 1px solid rgba(238, 232, 220, 0.1);
+        background: rgba(12, 11, 9, 0.82);
+        padding: 0.75rem clamp(1rem, 3vw, 2rem);
+        color: rgba(238, 232, 220, 0.58);
+        backdrop-filter: blur(12px);
+      }
+
+      .footer strong {
+        color: rgba(247, 241, 232, 0.76);
+        font-weight: 400;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(34px);
+        transition:
+          opacity 1200ms cubic-bezier(0.16, 1, 0.3, 1),
+          transform 1200ms cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .reveal.in {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .why-steve {
+        --tone-a: rgba(111, 63, 200, 0.56);
+        --tone-b: rgba(29, 16, 40, 0.74);
+        --accent: #c6adff;
+      }
+
+      .why-torras {
+        --tone-a: rgba(210, 90, 138, 0.52);
+        --tone-b: rgba(58, 20, 34, 0.74);
+        --accent: #f0a6c8;
+      }
+
+      .why-ostand {
+        --tone-a: rgba(214, 107, 46, 0.55);
+        --tone-b: rgba(50, 23, 13, 0.76);
+        --accent: #f1ad76;
+      }
+
+      .why-now {
+        --tone-a: rgba(47, 104, 216, 0.48);
+        --tone-b: rgba(6, 26, 51, 0.76);
+        --accent: #9ec5ff;
+      }
+
+      .forward {
+        --tone-a: rgba(243, 238, 229, 0.5);
+        --tone-b: rgba(148, 141, 126, 0.48);
+        --accent: #f7f1e8;
+      }
+
+      .lift {
+        transform: translateY(-4rem);
+      }
+
+      @media (max-width: 920px) {
+        .page {
+          min-height: auto;
+        }
+
+        .inner {
+          padding: 7rem 1.5rem;
+        }
+
+        .cover .inner {
+          padding-bottom: calc(2.5rem + 0.5cm);
+        }
+
+        .cover-grid,
+        .split {
+          grid-template-columns: 1fr;
+        }
+
+        .cover-copy,
+        .cover-brand,
+        .left,
+        .left-narrow,
+        .right,
+        .right-wide,
+        .story-wide,
+        .story-media {
+          grid-column: auto;
+        }
+
+        .cover-brand {
+          justify-items: start;
+        }
+
+        .image-grid {
+          min-height: 36rem;
+        }
+
+        .ostand-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .torras-image-grid,
+        .why-steve-image-grid {
+          transform: none;
+        }
+
+        .image-grid figure:nth-child(even) {
+          transform: translateY(1.5rem);
+        }
+
+        .lift {
+          transform: none;
+        }
+
+        .rail {
+          display: none;
+        }
+
+        .footer strong {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="rail" aria-label="Deck pages">
+      <ul>
+        <li><a href="#cover">00</a></li>
+        <li><a href="#why-steve">01</a></li>
+        <li><a href="#why-torras">02</a></li>
+        <li><a href="#why-ostand-core">03</a></li>
+        <li><a href="#why-now">04</a></li>
+        <li><a href="#looking-forward">05</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section id="cover" class="page cover" data-label="COLLECTOR'S NOTES" data-marker="COVER">
+        <img class="cover-photo" src="live-deck-assets/cover.jpg" alt="" />
+        <div class="cover-shade"></div>
+        <div class="inner">
+          <div class="cover-grid">
+            <div class="cover-copy reveal">
+              <div class="meta">COVER / STEVE AOKI / COLLECTOR'S NOTES</div>
+              <h1>STEVE AOKI</h1>
+              <p class="cover-line">A Thoughtful Beginning</p>
+            </div>
+            <div class="cover-brand reveal">
+              <div class="meta">July 2026</div>
+              <img class="logo" src="live-deck-assets/torras-logo-black.png" alt="TORRAS" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="why-steve" class="page why-steve" data-label="WHY STEVE" data-marker="SIDE A">
+        <div class="inner">
+          <div class="split lift">
+            <div class="left-narrow reveal">
+              <div class="meta">Page 01 / Side A / WHY STEVE</div>
+              <h2>WHY STEVE</h2>
+              <div class="statement compact-copy">
+                <p>We didn't choose Steve because of his audience.</p>
+                <p>We chose Steve because of his mindset.</p>
+              </div>
+            </div>
+            <div class="right-wide reveal">
+              <div class="image-grid why-steve-image-grid">
+                <figure>
+                  <img src="live-deck-assets/steve-press-purple.png" alt="" />
+                  <figcaption class="caption">Music</figcaption>
+                </figure>
+                <figure>
+                  <img src="live-deck-assets/why-steve-performance.png" alt="" />
+                  <figcaption class="caption">Performance</figcaption>
+                </figure>
+                <figure>
+                  <img src="live-deck-assets/why-steve-collectible.png" alt="" />
+                  <figcaption class="caption">Collectibles</figcaption>
+                </figure>
+                <figure>
+                  <img src="live-deck-assets/why-steve-movement.png" alt="" />
+                  <figcaption class="caption">Movement</figcaption>
+                </figure>
+              </div>
+            </div>
+            <div class="bottom bottom-above-line reveal" style="grid-column: 1 / -1">
+              <span>Always creating.</span>
+              <span>Always exploring.</span>
+              <span>Always moving.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="why-torras" class="page why-torras" data-label="WHY TORRAS" data-marker="SIDE A">
+        <div class="inner">
+          <div class="split shift-right">
+            <div class="left reveal">
+              <div class="image-grid torras-image-grid">
+                <figure>
+                  <img src="live-deck-assets/design-case-person.png" alt="" />
+                  <figcaption class="caption">Design</figcaption>
+                </figure>
+                <figure>
+                  <img src="live-deck-assets/movement-runner.png" alt="" />
+                  <figcaption class="caption">Movement</figcaption>
+                </figure>
+                <figure>
+                  <img src="live-deck-assets/protection-product.png" alt="" />
+                  <figcaption class="caption">Protection</figcaption>
+                </figure>
+                <figure>
+                  <img src="live-deck-assets/creativity-football.png" alt="" />
+                  <figcaption class="caption">Creativity</figcaption>
+                </figure>
+              </div>
+            </div>
+            <div class="right reveal">
+              <div class="meta">Page 02 / Side A / WHY TORRAS</div>
+              <h2>WHY TORRAS</h2>
+              <div class="statement compact-copy">
+                <p>At TORRAS,</p>
+                <p>we design everyday objects for people who never stop creating.</p>
+                <p>Thoughtful.</p>
+                <p>Functional.</p>
+                <p>Made to move.</p>
+              </div>
+            </div>
+            <div class="bottom reveal" style="grid-column: 1 / -1">
+              <span>Different industries.</span>
+              <span>The same philosophy.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="why-ostand-core"
+        class="page why-ostand"
+        data-label="WHY OSTAND CORE"
+        data-marker="SIDE A"
+      >
+        <div class="inner">
+          <div class="split">
+            <div class="left reveal">
+              <div class="meta">Page 03 / Side A / WHY OSTAND CORE</div>
+              <h2>WHY OSTAND CORE</h2>
+              <div class="statement">
+                <p>Not because it's our newest product.</p>
+                <p>Because it carries <strong class="future-word">THE FUTURE</strong> we believe in.</p>
+              </div>
+              <div class="bottom">
+                <span>When we thought about Steve,</span>
+                <span>this was the only case that felt right.</span>
+              </div>
+            </div>
+            <div class="right reveal">
+              <div class="ostand-grid">
+                <figure class="contain">
+                  <img src="live-deck-assets/ostand-prism-plum.png" alt="" />
+                </figure>
+                <figure class="contain">
+                  <img src="live-deck-assets/ostand-prism-turquoise.png" alt="" />
+                </figure>
+                <figure class="contain">
+                  <img src="live-deck-assets/ostand-coral-single.png" alt="" />
+                </figure>
+                <div class="ostand-keywords">
+                  <span>Minimal</span>
+                  <span>Lightweight</span>
+                  <span>Confident</span>
+                  <span>Built to Move</span>
+                  <span>Future Ready</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="why-now" class="page why-now" data-label="WHY NOW" data-marker="SIDE B">
+        <div class="inner">
+          <div class="split">
+            <div class="story-wide reveal">
+              <div class="meta">Page 04 / Side B / WHY NOW</div>
+              <h2>WHY NOW</h2>
+              <div class="statement small-copy">
+                <p>Long before we ever reached out,</p>
+                <p><span class="yellow-text">Steve was already carrying a TORRAS case.</span></p>
+                <p>That tiny moment stayed with us.</p>
+                <p>It reminded us that the best partnerships don't always begin with a pitch.</p>
+                <p>Sometimes, they begin naturally.</p>
+                <div class="copy-rule"></div>
+                <p>We're not here to ask for a campaign.</p>
+                <p>We're here because genuine connections are worth building.</p>
+                <p>The best stories usually do.</p>
+              </div>
+            </div>
+            <div class="story-media reveal">
+              <figure class="hero">
+                <img src="live-deck-assets/why-now-steve-case.jpg" alt="" />
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="looking-forward"
+        class="page forward"
+        data-label="LOOKING FORWARD"
+        data-marker="SIDE B"
+      >
+        <div class="inner center reveal">
+          <div class="meta">Page 05 / Side B / LOOKING FORWARD</div>
+          <h2>LOOKING FORWARD</h2>
+          <div class="statement">
+            <p><span class="orange-text">This September,</span></p>
+            <p>we'd love to send Steve</p>
+            <p>our new <span class="blue-text">Ostand Core Air Drop Creator Kit.</span></p>
+            <p>Not as a proposal.</p>
+            <p>Just as something we're genuinely excited to share.</p>
+            <div class="copy-rule"></div>
+            <p>No brief.</p>
+            <p>No expectations.</p>
+            <p>Just curiosity.</p>
+            <div class="copy-rule"></div>
+            <p>Whenever the timing feels right,</p>
+            <p>we'll be here.</p>
+          </div>
+          <div class="closing meta">
+            <span class="closing-line">See you down the road.</span>
+            <div class="closing-logos">
+              <img src="live-deck-assets/steve-aoki-wordmark-white.png" alt="Steve Aoki" />
+              <img src="live-deck-assets/torras-logo-white.png" alt="TORRAS" />
+            </div>
+            <span class="closing-large">TORRAS SIDE B</span>
+            <span class="closing-large">Starts whenever you're ready.</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="footer">
+      <span>TORRAS</span>
+      <strong id="footer-label">COLLECTOR'S NOTES</strong>
+      <span id="footer-marker">COVER</span>
+    </div>
+
+    <script>
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) entry.target.classList.add("in");
+          });
+        },
+        { rootMargin: "0px 0px -12% 0px", threshold: 0.08 },
+      );
+
+      document.querySelectorAll(".reveal").forEach((node) => revealObserver.observe(node));
+
+      const links = Array.from(document.querySelectorAll(".rail a"));
+      const sections = links
+        .map((link) => document.querySelector(link.getAttribute("href")))
+        .filter(Boolean);
+      const footerLabel = document.getElementById("footer-label");
+      const footerMarker = document.getElementById("footer-marker");
+
+      const pageObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            links.forEach((link) => {
+              link.classList.toggle("active", link.getAttribute("href") === `#${entry.target.id}`);
+            });
+            footerLabel.textContent = entry.target.dataset.label || "";
+            footerMarker.textContent = entry.target.dataset.marker || "";
+          });
+        },
+        { rootMargin: "-42% 0px -54% 0px", threshold: 0 },
+      );
+
+      sections.forEach((section) => pageObserver.observe(section));
+    </script>
+  </body>
+</html>
